@@ -1,6 +1,5 @@
 # 2021FallInstaClone
 Edwin Peralta
-<<<<<<< HEAD
 
 I applied to SUNY New Paltz, from North Rockland High School to become a Mechanical Engineering major, but I realized sophomore year I was really interested in Computer Science, so I switched majors. Therefore, I don’t have much experience coding, a little over a year, but I’m a quick learner. I have taken most of the required courses for Computer Science Chem I-II, Calc I-II, Computer science I-III, Assembly language, Object Oriented Programming, Discrete and Computer Algorithms. Discrete was probably one of the most difficult classes I’ve taken so far for my major (took it online last semester). This semester I am taking Web Programming, Cyber Security, Operating Systems, and Software Engineering. Computer Science I-II only taught students Java, so that is the code I am most confident in. Computer Science III didn’t continue Java we were taught HTML, CSS, and JavaScript, so I only have about a semester of experience with those.
 
