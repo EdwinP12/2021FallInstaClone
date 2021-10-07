@@ -1,5 +1,5 @@
 <template>
-  <nav class ="navbar is-primary"
+  <nav class ="navbar is-primary" role="navigation" aria-label="main-navigation">
   <div class ="navbar-brand">
     <a class="navbar-item" href="https://bulma.io">
       <img src="../assets/logo.png" width="112" height="28">
@@ -17,6 +17,10 @@
     <div class="navbar-start">
       <a class="navbar-item" href="/">
         Home
+      </a>
+
+      <a class="navbar-item" href="/feed">
+        Feed
       </a>
 
       <a class="navbar-item">
@@ -56,7 +60,7 @@
 </template>
 
 <script>
-import LoginBadge from '../LoginBadge'
+import LoginBadge from './LoginBadge';
 export default {
   data() {
       return{

@@ -1,5 +1,5 @@
 <template>
-  <div class="buttons" v-if="!user">
+  <div class="buttons" v-if="!Session.user">
           <a class="button is-primary">
             <strong>Sign up</strong>
           </a>
@@ -13,19 +13,19 @@
 </template>
 
 <script>
-import Session, { Login } from "../services/session";
+import Session from "../services/session";
 
 
 export default {
-    data: ()=>({
-        user: Session.user
-    }),
+    data: ()=>{
+        return ({
+            Session
+        })
+    },
     methods: {
         login(){
-            console.log(Session)
-            Login();
-           
-            console.log(Session)
+            this.$router.push('/login')
+            //this.Session.Login();
         }
     },
     computed:{
