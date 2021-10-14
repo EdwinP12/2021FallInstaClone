@@ -1,31 +1,31 @@
 <template>
-  <nav class ="navbar is-primary" role="navigation" aria-label="main-navigation">
-  <div class ="navbar-brand">
+  <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
     <a class="navbar-item" href="https://bulma.io">
-      <img src="../assets/logo.png" width="112" height="28">
-      Be Happy
+      <img src="../assets/logo.png" height="28">
+      <h3 class="title">Be Happy</h3>
     </a>
 
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" :class="{'is-active': isActive}" @click="isActive = !isActive">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" :class="{'is-active': isActive }" @click="isActive = !isActive" >
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
 
-  <div class="navbar-menu" :class="{'is-active': isActive}">
+  <div class="navbar-menu " :class="{'is-active': isActive }">
     <div class="navbar-start">
-      <a class="navbar-item" href="/">
+      <router-link class="navbar-item is-tab" to="/" active-class="is-active" exact>
         Home
-      </a>
+      </router-link>
 
-      <a class="navbar-item" href="/feed">
+      <router-link class="navbar-item is-tab" to="/feed" active-class="is-active">
         Feed
-      </a>
+      </router-link>
 
-      <a class="navbar-item">
+      <router-link class="navbar-item is-tab" to="/about" active-class="is-active">
         Documentation
-      </a>
+      </router-link>
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
@@ -33,9 +33,9 @@
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item" href="/about">
+          <router-link class="navbar-item is-tab" to="about" active-class="is-active">
             About
-          </a>
+          </router-link>
           <a class="navbar-item">
             Jobs
           </a>
@@ -57,18 +57,22 @@
     </div>
   </div>
 </nav>
+
 </template>
 
 <script>
 import LoginBadge from './LoginBadge';
 export default {
-  data() {
-      return{
-        isActive: false
-      }
-  },
-  components:{
-    LoginBadge,
-  }
+    data(){
+        return {
+            isActive: false
+        }
+    },
+    components: {
+        LoginBadge,
+    }
 }
 </script>
+
+<style>
+</style>

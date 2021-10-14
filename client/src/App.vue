@@ -1,6 +1,10 @@
 <template>  
 <div class="container">
-  <Nav />
+  <div class="columns">
+    <div class="column">
+      <Nav />
+    </div>
+  </div>
 
   <router-view/>
   </div>
