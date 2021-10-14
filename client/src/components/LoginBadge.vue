@@ -30,7 +30,7 @@ export default {
     },
     computed:{
         name(){
-            return this.user.FirstName + '' + this.user.LastName;
+            return this.Session.user.firstName + '' + this.Session.user.lastName;
         }
     }
 }
