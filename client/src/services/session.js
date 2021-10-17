@@ -16,4 +16,4 @@ const session = {
 
 export default session;
 
-//export function
+//export functions
