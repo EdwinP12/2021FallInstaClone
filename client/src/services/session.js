@@ -1,12 +1,9 @@
 import router from "../router";
 import { Login } from "./users";
-
+import { NotificationProgrammatic } from "@oruga-ui/oruga-next/dist/esm/notification";
 const session = {
     user: null,
-    messages: [ 
-        { text:"Hello World", type: "danger"},
-        { text:"Hello New Paltz", type: "success"},
-    ],    //{text: string, type: string }
+    messages: [],    //{text: string, type: string }
     toRoute: '/feed',
     Login(handle, password){
 
@@ -18,6 +15,14 @@ const session = {
         router.push(this.toRoute)
         }catch (error){
             this.messages.push({text: error.msg, type: 'warning'})
+            NotificationProgrammatic.open({
+                duration: 5000,
+                message: error.msg,
+                variant: 'danger',
+                type: 'danger',
+                closeable: true,
+
+            })
         }
         
     }
