@@ -1,5 +1,6 @@
 /* B"H
 */
+const { includes } = require("lodash");
 const { GetByHandle } = require("./users");
 
 const list = [
@@ -81,3 +82,6 @@ module.exports.Delete = function Delete(post_id) {
     list.splice(post_id, 1);
     return post;
 } 
+
+module.exports.Search = q => list.find(x => x.caption,includes(q));
+  

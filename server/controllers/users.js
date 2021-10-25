@@ -7,5 +7,8 @@ app
   .get("/", (req, res) => {
     res.send([model.GetAll()])
   })
+  .get("/:user_id", (req, res) => {
+    res.send([model.Get(req.params.user_id)])
+  })
   
 module.exports = app;
