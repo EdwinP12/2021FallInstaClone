@@ -13,6 +13,10 @@ app
   .get("/:id", (req, res, next) => {
     res.send(model.Get(req.params.id));
   })
-  
+  .post("/", (req, res, next) => {
+    const newPost = model.Add(req.body)
+
+    res.status(201).send(newPost);
+  })
   
 module.exports = app;
