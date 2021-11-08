@@ -1,6 +1,10 @@
 /* B"H
 */
-const bcrypt = require('bcrypt') 
+const bcrypt = require('bcrypt');
+const { result } = require('lodash');
+const { client } = require('mongodb');
+
+const collection = client.db(process.env.MONGO_DB);
 
 const list = [
     { 
@@ -43,9 +47,9 @@ const list = [
 
 ];
 
-module.exports.GetAll = function GetAll() { return list; }
+module.exports.GetAll = function GetAll() { return collection.find().toArray(); }
 
-module.exports.Get = (user_id) => list[user_id]; 
+module.exports.Get = (user_id) => collection.findOne({_id: user_id}) 
 
 module.exports.GetByHandle = function GetByHandle(handle) { return ({ ...list.find( x => x.handle == handle ), password: undefined }); } 
 
@@ -57,7 +61,8 @@ module.exports.Add = async function Add(user, cb) {
   
     user.password = hash;
 
-    list.push(user);
+    const user2 = await collection.insertOne(user);
+    user._id = user2.insertedId;
 
     return { ...user, password: undefined };
 }
@@ -89,7 +94,7 @@ module.exports.Delete = function Delete(user_id) {
 
 module.exports.Login = async function Login(handle, password){
     console.log({ handle, password})
-    const user = list.find(x=> x.handle == handle);
+    const user = await collection.findOne({ handle });
     if(!user){
         return Promise.reject( { code: 401, msg: "Sorry there is no user with that handle" });
     }
@@ -105,10 +110,6 @@ module.exports.Login = async function Login(handle, password){
         return { user: data };
 }
 
-module.exports.Async = async() =>{
-    console.log("Inner function: 1")
-
-    await Promise.resolve();
-
-    console.log("Inner function: 2")
+module.exports.seed = (){
+    list.forEach(x=> module.exports.Add(x) )
 }
