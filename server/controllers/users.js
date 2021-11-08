@@ -4,6 +4,7 @@ const model = require("../models/users");
 const app = express.Router();
 
 app
+
   .get("/", (req, res, next) => {
     res.send(model.GetAll());
   })
@@ -26,4 +27,5 @@ app
     })
     .catch(next)
   })
+
 module.exports = app;
