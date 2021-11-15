@@ -4,8 +4,8 @@
       <div class="columns">
             <div class="column is-one-third is-offset-one-third">
 
-              <div class="post" v-for="p in posts" :key="p.src" >
-                <post :post="p"/>
+              <div class="post" v-for="(p, i) in posts" :key="p.src" >
+                <post :post="p" @remove="remove(p, i)" />
               </div>
 
             </div>
@@ -17,7 +17,7 @@
 <script>
 import Post from "../components/Post.vue";
 import session from "../services/session";
-import { GetWall } from "../services/posts";
+import { Delete, GetFeed } from "../services/posts";
 export default {
   components: { 
     Post 
@@ -26,7 +26,16 @@ export default {
       posts: []
   }),
   async mounted(){
-    this.posts = await GetWall(session.user.handle)
+    this.posts = await GetFeed(session.user.handle)
+  },
+  method: {
+    async remove(post, i){
+        Delete(post._id)
+        const response = await Delete(post._id)
+        if(response.deleted){
+          this.posts.splice(i, 1)
+        }
+    }
   }
 }
 </script>
