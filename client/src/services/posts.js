@@ -1,5 +1,8 @@
-import { post } from "../../../server/controllers/users";
-import { api } from "./myfetch";
+/* B"H
+*/
+
+import { api } from "./myFetch";
+
 
 
 export function GetAll() {
@@ -11,7 +14,7 @@ export function GetWall(handle) {
 }
 
 export function GetFeed(handle) { 
-    return api('posts/feed/' + handle);
+    return api('posts/feed/' + handle);   
 }
 
 
@@ -20,7 +23,7 @@ export function Add(post) {
      return { ...post };
 }
 export function Update(post_id, post) {
-    return {post_id, post};
+    return { post_id, post};
 }
 export function Delete(post_id) {
     return post_id;
