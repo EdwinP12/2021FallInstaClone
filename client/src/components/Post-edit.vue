@@ -14,14 +14,12 @@
                         <input class="input" type="text" placeholder="Some alternate text for this picture" v-model="post.alt" />
                     </div>
                 </div>
-
                 <div class="field">
                     <label class="label">Caption</label>
                     <div class="control">
                         <textarea class="textarea" placeholder="Some text to explain this picture" v-model="post.caption"></textarea>
                     </div>
                 </div>
-
                 <div class="field">
                     <div class="control">
                         <label class="radio">
@@ -34,17 +32,14 @@
                         </label>
                     </div>
                 </div>
-
             </div>
         </div>
         <footer class="card-footer">
             <button class="button is-link card-footer-item" type="submit">Submit</button>
             <button class="button is-link is-light card-footer-item" type="reset">Cancel</button>
-
         </footer>
     </form>
 </template>
-
 <script>
 export default {
     props: {
@@ -54,9 +49,13 @@ export default {
         return {
             post: this.newPost
         }
+    },
+    watch: {
+        newPost(){
+            this.post = this.newPost;
+        }
     }
 }
 </script>
-
 <style>
-</style> 
+</style>
