@@ -1,8 +1,12 @@
-import React from "react"
+import React from "react";
+import { NavLink } from "react-router-dom";
 //import LoginBadge from './LoginBadge';
+
 export default function Nav() {
-  const data = { isActive: false }
-return(
+
+    const data = { isActive: false }
+
+    return (
   <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
   <div className="navbar-brand">
     <a className="navbar-item" href="https://bulma.io">
@@ -19,34 +23,34 @@ return(
 
   <div className="navbar-menu " className="{'is-active': isActive }">
     <div className="navbar-start">
-      <router-link className="navbar-item is-tab" to="/" active-className="is-active" exact>
+      <NavLink className="navbar-item is-tab" to="/" active-className="is-active" exact>
         Home
-      </router-link>
+      </NavLink>
 
-      <router-link className="navbar-item is-tab" to="/feed" active-className="is-active">
+      <NavLink className="navbar-item is-tab" to="/feed" active-className="is-active">
         Feed
-      </router-link>
+      </NavLink>
 
-      <router-link className="navbar-item is-tab" to="/about" active-className="is-active">
+      <NavLink className="navbar-item is-tab" to="/about" active-className="is-active">
         Documentation
-      </router-link>
+      </NavLink>
 
-      <div className="navbar-item has-dropdown is-hoverable">
-        <a className="navbar-link">
+      <div className="navbar-item has-dropdown is-hoverable" >
+        <a className="navbar-link" >
           More
         </a>
 
         <div className="navbar-dropdown">
-          <router-link className="navbar-item is-tab" to="about" active-className="is-active">
+          <NavLink className="navbar-item is-tab" to="about" active-className="is-active">
             About
-          </router-link>
+          </NavLink>
           <a className="navbar-item">
             Jobs
           </a>
           <a className="navbar-item">
             Contact
           </a>
-          <hr className="navbar-divider"/>
+          <hr className="navbar-divider" />
           <a className="navbar-item">
             Report an issue
           </a>
@@ -61,20 +65,5 @@ return(
     </div>
   </div>
 </nav>
+
 )}
-
-<script>
-export default {
-    data(){
-        return {
-            isActive: false
-        }
-    },
-    components: {
-        LoginBadge,
-    }
-}
-</script>
-
-<style>
-</style>
